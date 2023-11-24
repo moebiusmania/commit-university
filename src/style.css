@@ -1,0 +1,74 @@
+
+:root {
+  --black: #222;
+  --blue: #0066CC;
+  --font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-family: var(--font);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--black);
+}
+
+main {
+  width: 80%;
+  margin: 50px auto;
+
+  & h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+
+  & section.participants {
+    & form {
+      display: none;
+      margin-bottom: 10px;
+
+      &.show {
+        display: block;
+      } 
+
+      & input {
+        width: 100%;
+        font-family: var(--font);
+        color: var(--black);
+        padding: 10px;
+        border-radius: 0;
+        outline: none;
+        transition: all 0.4s ease;
+        border: 1px solid var(--black);
+        box-sizing: border-box;
+      }
+  
+      & input:focus {
+        border-color: var(--blue);
+        box-shadow: 0px 0px 8px var(--blue);
+      }
+    }
+
+    & div.badges {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      align-items: center;
+  
+      & .badge {
+        padding: 2px 8px;
+        border-radius: 10px;
+        background-color: var(--blue);
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  & footer {
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.8em;
+    font-style: italic;
+  } 
+}
+
