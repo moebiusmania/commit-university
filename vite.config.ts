@@ -1,7 +1,10 @@
 import { defineConfig } from "vite";
 
-const base: string | undefined =
-  process.env.NODE_ENV === "production" ? "/commit-university/" : "";
+const isProd = process.env.NODE_ENV === "production";
+
+const base: string | undefined = isProd ? "/commit-university/" : "";
+
+isProd && console.log("** BUILDING FOR PROD 🚀 **");
 
 // https://vitejs.dev/config/
 export default defineConfig({

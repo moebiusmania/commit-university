@@ -1,9 +1,11 @@
 
 :root {
+  /* global variables */
   --black: #222;
   --blue: #0066CC;
   --font: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
+  /* global typography */
   font-family: var(--font);
   line-height: 1.5;
   font-weight: 400;
@@ -17,6 +19,7 @@ main {
   & h1 {
     font-size: 2.8rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   & section.participants {

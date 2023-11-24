@@ -1,5 +1,5 @@
 import { html } from "lit";
-import { component, useState } from "haunted";
+import { component } from "haunted";
 
 const Grid = () => {
   return html` <section class="grid">grid</section> `;
