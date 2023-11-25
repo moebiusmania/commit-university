@@ -1,8 +1,8 @@
 import "reveal.js/dist/reveal.css";
-import "reveal.js/dist/theme/league.css";
+import "reveal.js/dist/theme/sky.css";
 
 // themes that I like:
-// league - white - simpe - sky
+// league - white - simple - sky
 
 import Reveal from "reveal.js";
 import Markdown from "reveal.js/plugin/markdown/markdown.esm.js";
@@ -12,3 +12,5 @@ let deck = new Reveal({
 });
 
 deck.initialize();
+
+// https://revealjs.com/api/
