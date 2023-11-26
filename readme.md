@@ -2,7 +2,7 @@
 
 > Slides and code from the event.
 
-![Midjourney prompt: "web developers christmas event, illustration, --ar 16:9"](./cu_cover.webp)
+![Midjourney prompt: "web developers christmas event, illustration, --ar 16:9"](./public/cu_cover.webp)
 
 This repository includes both the slides and the sample webapp used for the event.
 
