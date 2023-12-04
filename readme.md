@@ -2,14 +2,24 @@
 
 > Slides and code from the event.
 
-![Midjourney prompt: "web developers christmas event, illustration, --ar 16:9"](./public/cu_cover.webp)
+![Midjourney prompt: "web developers christmas event, illustration, --ar 16:9"](./public/cu_intro.png)
 
 This repository includes both the slides and the sample webapp used for the event.
 
 ## Event ToC
 
+`[ITA]`
+La serata sarà principalmente divisa in 3 parti:
+
+- Parte 1: ⏳ **10 years in a (frontend) lifetime** - una breve retrospettiva (_non più di 20 minuti_) sugli alti e bassi dell'ultimo decennio di sviluppo frontend.
+- Parte 2: 👩‍💻 **-code hands on-** - una breve sessione di 30 minuti circa in cui svilupperemo un piccolo gioco a quiz utilizzando (_per lo più_) web standards.
+- Parte 3: 🤓 **Giochiamo al quiz appena creato!**
+
+`[ENG]`
+The event will be mainly be splitted in 3 parts:
+
 - Part 1: ⏳ **10 years in a (frontend) lifetime** - a 15 to 20 minutes retrospective about the last decade of the frontend development world
-- Part 2: 👩‍💻 **title-in-progress** - a 20 to 30 minutes hands-on coding session on building a simple quiz game using (_mostly_) current web standards
+- Part 2: 👩‍💻 **-code hands on-** - a 30 minutes hands-on coding session on building a simple quiz game using (_mostly_) current web standards
 - Part 3: 🤓 **Let's play the just-built quiz!**
 
 ## Built on top of
