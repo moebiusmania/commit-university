@@ -1,4 +1,7 @@
 
+/* CSS variables (custom properties)
+https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+*/
 :root {
   /* global variables */
   --black: #222;
@@ -18,6 +21,10 @@ main {
   width: 80%;
   margin: 50px auto;
 
+  /*
+    CSS nesting... like we did long ago with SASS/LESS
+    https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting
+  */
   & h1 {
     font-size: 2.8rem;
     margin-bottom: 1rem;
@@ -52,7 +59,7 @@ main {
     }
 
     & div.badges {
-      display: flex;
+      display: flex;  /* no more floats, clearfix, etc... */
       gap: 5px;
       flex-wrap: wrap;
       align-items: center;

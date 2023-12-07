@@ -16,6 +16,8 @@ function Modal({ open, message, title }: Props) {
     fireEvent(this, "close-modal");
   };
 
+  // Wrapping a native <dialog> element in a Web Component
+  // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
   return html`<dialog ?open=${open}>
     <article>
       <h2>${title}</h2>

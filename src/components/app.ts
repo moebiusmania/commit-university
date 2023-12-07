@@ -1,5 +1,5 @@
 import { html } from "lit";
-import { component, useState } from "haunted";
+import { component, useReducer } from "haunted";
 
 import activities from "../data/activities.json";
 import { Square, initial } from "../utils";
@@ -8,43 +8,85 @@ import "./participants";
 import "./modal";
 import "./square";
 
+interface AppState {
+  data: Square[];
+  isOpen: boolean;
+  participants: string;
+  title: string;
+  content: string;
+}
+
+const initState: AppState = {
+  data: initial,
+  isOpen: false,
+  participants: "",
+  title: "",
+  content: "",
+};
+
+const reducer = (state: AppState, action: any) => {
+  switch (action.type) {
+    case "setDone":
+      return {
+        ...state,
+        data: action.payload.update,
+        content: getRandomItem(action.payload.activities),
+        title: getRandomItem(state.participants.split(",")),
+        isOpen: true,
+      };
+    case "close":
+      return { ...state, isOpen: false };
+    case "setParticipants":
+      return { ...state, participants: action.payload };
+    default:
+      return state;
+  }
+};
+
 const getRandomItem = (items: string[]): string => {
   const random = Math.floor(Math.random() * items.length);
   return items[random];
 };
 
 const App = () => {
-  const [data, setData] = useState<Square[]>(initial);
-  const [isOpen, setOpen] = useState<boolean>(false);
-  const [participants, setParticipants] = useState<string>("");
-  const [title, setTitle] = useState<string>("");
-  const [content, setContent] = useState<string>("");
+  const [state, dispatch] = useReducer(reducer, initState);
 
   const setDone = (index: number) => () => {
-    const current = data[index];
+    const current = state.data[index];
 
     if (!current.locked && !current.done) {
-      const update = [...data];
+      const update = [...state.data];
       update[index].done = true;
-      index !== data.length - 1 && (update[index + 1].locked = false);
+      index !== state.data.length - 1 && (update[index + 1].locked = false);
 
-      setData(update);
-      setContent(getRandomItem(activities));
-      setTitle(getRandomItem(participants.split(",")));
-      setOpen(true);
+      dispatch({
+        type: "setDone",
+        payload: {
+          update,
+          activities,
+        },
+      });
     }
   };
 
-  const onClose = () => {
-    setOpen(false);
+  const setParticipants = (e: CustomEvent) => {
+    dispatch({ type: "setParticipants", payload: e.detail });
   };
 
+  const onClose = () => {
+    dispatch({ type: "close" });
+  };
+
+  // lit-html has different bindings for attributes and properties
+  // https://lit.dev/docs/templates/expressions/
+
+  // eventually lit-html has a directive for repeating items
+  // https://lit.dev/docs/templates/directives/#repeat
+
   return html`
-    <cu-participants
-      @update=${(e: CustomEvent) => setParticipants(e.detail)}
-    ></cu-participants>
+    <cu-participants @update=${setParticipants}></cu-participants>
     <section class="grid">
-      ${data.map(
+      ${state.data.map(
         (item, index) =>
           html`<cu-square
             index=${index}
@@ -54,18 +96,20 @@ const App = () => {
       )}
     </section>
     <cu-modal
-      ?open="${isOpen}"
+      ?open="${state.isOpen}"
       @close-modal=${onClose}
-      message=${content}
-      title=${title}
+      message=${state.content}
+      title=${state.title}
     ></cu-modal>
   `;
 };
 
+// global component registration
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define
 customElements.define(
   "cu-app",
   component(App, {
-    observedAttributes: ["participants"],
-    useShadowDOM: false,
+    // component() is a haunted function that returns a Web Component from a function component
+    useShadowDOM: false, // we are turning off Shadow DOM here to allow us to use global styles
   })
 );

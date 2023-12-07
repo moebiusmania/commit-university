@@ -1,3 +1,6 @@
+// wrapping the gamepad API in a Web Component
+// NOTE: this is a VERY LIMITED implementation of the APIs
+// https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API
 export default class GamepadApi extends HTMLElement {
   polling: NodeJS.Timeout | null;
 

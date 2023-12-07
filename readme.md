@@ -3,6 +3,7 @@
 > Slides and code from the event.
 
 ![Midjourney prompt: "web developers christmas event, illustration, --ar 16:9"](./public/cu_intro.png)
+<small>_Cover image created with Midejourney + Microsoft Designer_</small>
 
 This repository includes both the slides and the sample webapp used for the event.
 
@@ -35,6 +36,7 @@ Sample advent calendar webapp:
 Slides:
 
 - [Reveal.js](https://revealjs.com/) - the HTML presentation framework
+- [Gamepad API](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API/Using_the_Gamepad_API) - browser-native API to interact with gaming input devices
 
 ## Use the "starter" version
 
