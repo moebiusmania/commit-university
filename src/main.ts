@@ -1,10 +1,8 @@
-import "normalize.css"
-import './style.css'
+import "normalize.css";
+import "./style.css";
 
-import "./components/participants"
-import "./components/grid"
+import "./components/app";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <cu-participants></cu-participants>
-  <cu-grid></cu-grid>
-`
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+  <cu-app></cu-app>
+`;
