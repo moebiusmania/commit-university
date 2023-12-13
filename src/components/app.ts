@@ -46,63 +46,7 @@ const reducer = (state: AppState, action: any) => {
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
-  const setDone = (index: number) => () => {
-    const current = state.data[index];
-
-    if (!current.locked && !current.done) {
-      const update = [...state.data];
-      update[index].done = true;
-      index !== state.data.length - 1 && (update[index + 1].locked = false);
-
-      dispatch({
-        type: "setDone",
-        payload: {
-          update,
-          activities,
-        },
-      });
-    }
-  };
-
-  const setParticipants = (e: CustomEvent) => {
-    dispatch({ type: "setParticipants", payload: e.detail });
-  };
-
-  const onClose = () => {
-    dispatch({ type: "close" });
-
-    const dones = state.data.filter((item) => item.done);
-    const isLast = dones.length === state.data.length;
-    isLast
-      ? (window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ/")
-      : null;
-  };
-
-  // lit-html has different bindings for attributes and properties
-  // https://lit.dev/docs/templates/expressions/
-
-  // eventually lit-html has a directive for repeating items
-  // https://lit.dev/docs/templates/directives/#repeat
-
-  return html`
-    <cu-participants @update=${setParticipants}></cu-participants>
-    <section class="grid">
-      ${state.data.map(
-        (item, index) =>
-          html`<cu-square
-            index=${index}
-            .item=${item}
-            .setDone=${setDone}
-          ></cu-square>`
-      )}
-    </section>
-    <cu-modal
-      ?open="${state.isOpen}"
-      @close-modal=${onClose}
-      message=${state.content}
-      title=${state.title}
-    ></cu-modal>
-  `;
+  return html` <section>-our code here-</section> `;
 };
 
 // global component registration
