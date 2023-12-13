@@ -22,5 +22,14 @@ const gamepad = document.querySelector("gamepad-api");
 
 gamepad?.addEventListener("button", (evt: Event): void => {
   const direction = (evt as CustomEvent).detail.button;
-  direction === "prev" ? deck.prev() : deck.next();
+  switch (direction) {
+    case "prev":
+      deck.prev();
+      break;
+    case "next":
+      deck.next();
+      break;
+    default:
+      break;
+  }
 });

@@ -56,7 +56,7 @@ install the dependencies
 
 ```bash
 $ cd commit-university
-$ npm i
+$ npm ci
 ```
 
 run the dev server
@@ -69,4 +69,4 @@ open your browsr on the `localhost:3000` address.
 
 ## License
 
-All of the code in this repository is distribuited under the terms of the [MIT license](LICENSE).
+All of the code in this repository is distribuited under the terms of the [MIT license](LICENSE) unless where specified otherwise.

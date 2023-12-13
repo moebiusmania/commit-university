@@ -20,6 +20,7 @@ function Participants() {
     doUpdate(update);
   };
 
+  // this is just to sync the data with the app on init
   useEffect(() => {
     doUpdate(data);
   }, []);
