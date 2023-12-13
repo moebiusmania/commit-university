@@ -4,6 +4,12 @@ export interface Square {
   label: string;
 }
 
+// just random item getter
+export const getRandomItem = (items: string[]): string => {
+  const random = Math.floor(Math.random() * items.length);
+  return items[random];
+};
+
 // this function is used to dispatch events from a Web Component
 // https://developer.mozilla.org/en-US/docs/Web/Events/Creating_and_triggering_events
 export const fireEvent = (_this: any, name: string, detail?: any) => {

@@ -2,7 +2,7 @@ import { html } from "lit";
 import { component, useReducer } from "haunted";
 
 import activities from "../data/activities.json";
-import { Square, initial } from "../utils";
+import { Square, getRandomItem, initial } from "../utils";
 
 import "./participants";
 import "./modal";
@@ -43,11 +43,6 @@ const reducer = (state: AppState, action: any) => {
   }
 };
 
-const getRandomItem = (items: string[]): string => {
-  const random = Math.floor(Math.random() * items.length);
-  return items[random];
-};
-
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
@@ -75,6 +70,12 @@ const App = () => {
 
   const onClose = () => {
     dispatch({ type: "close" });
+
+    const dones = state.data.filter((item) => item.done);
+    const isLast = dones.length === state.data.length;
+    isLast
+      ? (window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ/")
+      : null;
   };
 
   // lit-html has different bindings for attributes and properties
